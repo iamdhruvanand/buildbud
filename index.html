@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BuildBud | Premium Tech-Driven Home Construction in Delhi/NCR</title>
+    <title data-en="BuildBud | Premium Tech-Driven Home Construction in Delhi/NCR" data-hi="BuildBud | दिल्ली/NCR में प्रीमियम टेक-ड्रिवेन होम कंस्ट्रक्शन">BuildBud | Premium Tech-Driven Home Construction in Delhi/NCR</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,468 +20,283 @@
         .border-gold-500 { border-color: #F59E0B; }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="bg-slate-50 text-slate-800">
 
-    <header class="sticky top-0 z-50 bg-navy-900/95 backdrop-blur-md border-b border-slate-800 shadow-lg">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="#" class="text-2xl font-bold text-white tracking-tight flex items-center gap-2">
-                        <i class="fa-solid fa-trowel-bricks text-gold-500"></i>
-                        Build<span class="text-gold-500">Bud</span>
-                    </a>
-                </div>
-                
-                <nav class="hidden md:flex space-x-8 text-sm font-medium">
-                    <a href="#" class="text-gold-500 transition-colors">Home</a>
-                    <a href="#tech" class="text-slate-300 hover:text-white transition-colors">Our Tech</a>
-                    <a href="#services" class="text-slate-300 hover:text-white transition-colors">Services</a>
-                    <a href="#estimator" class="text-slate-300 hover:text-white transition-colors">NCR Projects</a>
-                    <a href="#contact" class="text-slate-300 hover:text-white transition-colors">Contact</a>
-                </nav>
+    <div class="bg-slate-900 text-white text-xs py-2 px-4 flex justify-end items-center gap-4 border-b border-slate-800">
+        <div class="flex items-center gap-1">
+            <i class="fa-solid fa-earth-americas text-gold-500"></i>
+            <button id="lang-toggle-en" onclick="setLanguage('en')" class="font-semibold text-gold-500 hover:underline focus:outline-none">English</button>
+            <span class="text-slate-500">|</span>
+            <button id="lang-toggle-hi" onclick="setLanguage('hi')" class="hover:text-gold-500 focus:outline-none">हिन्दी</button>
+        </div>
+    </div>
 
-                <div class="hidden md:flex items-center">
-                    <a href="#contact" class="bg-gold-500 hover:bg-gold-600 text-navy-900 font-semibold px-5 py-2.5 rounded-lg shadow-md transition-all duration-200 transform hover:-translate-y-0.5 text-sm">
-                        Get Free NCR Quote
-                    </a>
-                </div>
-
-                <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" class="text-slate-400 hover:text-white focus:outline-none" aria-label="Toggle menu">
-                        <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
-                    </button>
-                </div>
+    <header class="sticky top-0 z-40 bg-navy-900 text-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <i class="fa-solid fa-helmet-safety text-3xl text-gold-500"></i>
+                <span class="text-2xl font-bold tracking-tight">Build<span class="text-gold-500">Bud</span></span>
             </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#services" class="hover:text-gold-500 transition-colors" data-en="Services" data-hi="सेवाएं">Services</a>
+                <a href="#estimator" class="hover:text-gold-500 transition-colors" data-en="Cost Estimator" data-hi="लागत कैलकुलेटर">Cost Estimator</a>
+                <a href="#gallery" class="hover:text-gold-500 transition-colors" data-en="Our Projects" data-hi="हमारी परियोजनाएं">Our Projects</a>
+                <a href="#contact" class="bg-gold-500 hover:bg-gold-600 text-navy-900 px-4 py-2 rounded-md font-semibold transition-colors" data-en="Get a Quote" data-hi="कोटेशन प्राप्त करें">Get a Quote</a>
+            </nav>
+
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none text-2xl">
+                <i id="menu-icon" class="fa-solid fa-bars"></i>
+            </button>
         </div>
 
-        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-b border-slate-800 px-4 pt-2 pb-6 space-y-3">
-            <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gold-500">Home</a>
-            <a href="#tech" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white">Our Tech</a>
-            <a href="#services" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white">Services</a>
-            <a href="#estimator" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white">NCR Projects</a>
-            <a href="#contact" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white">Contact</a>
-            <div class="pt-2 px-3">
-                <a href="#contact" class="block text-center bg-gold-500 hover:bg-gold-600 text-navy-900 font-semibold px-4 py-3 rounded-lg shadow-md transition-colors">
-                    Get Free NCR Quote
-                </a>
-            </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-navy-900 border-t border-slate-800 px-4 pt-2 pb-6 flex flex-col gap-4">
+            <a href="#services" class="text-lg py-2 border-b border-slate-800" data-en="Services" data-hi="सेवाएं">Services</a>
+            <a href="#estimator" class="text-lg py-2 border-b border-slate-800" data-en="Cost Estimator" data-hi="लागत कैलकुलेटर">Cost Estimator</a>
+            <a href="#gallery" class="text-lg py-2 border-b border-slate-800" data-en="Our Projects" data-hi="हमारी परियोजनाएं">Our Projects</a>
+            <a href="#contact" class="bg-gold-500 text-center text-navy-900 py-3 rounded-md font-bold mt-2" data-en="Get a Quote" data-hi="कोटेशन प्राप्त करें">Get a Quote</a>
         </div>
     </header>
 
-    <main>
-        <section class="relative bg-navy-900 text-white overflow-hidden py-16 lg:py-24">
-            <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#f59e0b_1px,transparent_1px)] [background-size:16px_16px]"></div>
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-                    
-                    <div class="space-y-8">
-                        <div class="inline-flex items-center gap-2 bg-slate-800/80 border border-slate-700 px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-gold-500">
-                            <span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                            Delhi/NCR's Most Trusted Builder
-                        </div>
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-                            Building Premium Homes in Delhi/NCR: <span class="text-gold-500">100% Transparent.</span> Zero Delays.
-                        </h1>
-                        <p class="text-lg text-slate-300 max-w-xl">
-                            Track live construction progress straight from your phone. No budget overruns, no material compromises—just pure peace of mind across South Delhi, Gurugram, and Noida.
-                        </p>
-                        
-                        <div class="bg-slate-800/90 p-6 rounded-2xl border border-slate-700 shadow-xl max-w-md">
-                            <h3 class="text-md font-semibold text-white mb-4 flex items-center gap-2">
-                                <i class="fa-solid fa-calculator text-gold-500"></i> Estimate Your NCR Construction Cost
-                            </h3>
-                            <form action="#estimator" class="space-y-4">
-                                <div class="grid grid-cols-2 gap-3">
-                                    <div>
-                                        <label class="block text-xs text-slate-400 mb-1">Select Location</label>
-                                        <select class="w-full bg-navy-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-gold-500">
-                                            <button>Gurugram</button>
-                                            <option>South Delhi</option>
-                                            <option>Noida</option>
-                                            <option>Dwarka</option>
-                                        </select>
-                                    </div>
-                                    <div>
-                                        <label class="block text-xs text-slate-400 mb-1">Plot Size (Sq. Yards)</label>
-                                        <input type="number" placeholder="e.g. 200" class="w-full bg-navy-900 border border-slate-700 rounded-lg px-3 py-2 text-sm text-slate-200 focus:outline-none focus:border-gold-500">
-                                    </div>
-                                </div>
-                                <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-2">
-                                    Calculate Now <i class="fa-solid fa-arrow-right text-xs"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-
-                    <div class="relative lg:ml-4">
-                        <div class="absolute -inset-1 rounded-2xl bg-gradient-to-r from-gold-500 to-amber-600 opacity-30 blur-lg"></div>
-                        <div class="relative bg-slate-800 rounded-2xl overflow-hidden shadow-2xl border border-slate-700">
-                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" 
-                                 alt="A premium 4-story independent floor building in South Delhi featuring a modern stilt parking layout, elegant structural balconies with glass railings, localized structural red-brick accents combined with clean beige stone cladding cladding, completely adapted to New Delhi building bylaws under a clear sunny sky." 
-                                 class="w-full h-[450px] object-cover object-center">
-                            <div class="absolute bottom-0 inset-x-0 bg-gradient-to-t from-navy-900 via-navy-900/40 to-transparent p-6 pt-12">
-                                <p class="text-xs font-semibold text-gold-500 uppercase tracking-widest mb-1">Featured Turnkey Execution</p>
-                                <p class="text-sm font-medium text-white">Luxury Independent Floor — DLF Phase II, Gurugram</p>
-                            </div>
-                        </div>
-                    </div>
-
+    <section class="relative bg-navy-900 text-white overflow-hidden py-24 sm:py-32">
+        <div class="absolute inset-0 opacity-10 bg-[url('construction-site.jpg')] bg-cover bg-center"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <span class="text-gold-500 font-semibold tracking-wider uppercase text-sm block mb-3" data-en="Tech-Driven Construction" data-hi="तकनीक-आधारित निर्माण">Tech-Driven Construction</span>
+                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-6 leading-tight" data-en="Build Your Dream Home in Delhi/NCR with Absolute Precision" data-hi="पूर्ण सटीकता के साथ दिल्ली/NCR में अपने सपनों का घर बनाएं">
+                    Build Your Dream Home in Delhi/NCR with Absolute Precision
+                </h1>
+                <p class="text-slate-300 text-lg mb-8" data-en="Transparent pricing, real-time tracking, and premium quality craftsmanship across Delhi, Gurugram, Noida, and NCR." data-hi="दिल्ली, गुरुग्राम, नोएडा और NCR में पारदर्शी मूल्य निर्धारण, रीयल-टाइम ट्रैकिंग और प्रीमियम गुणवत्ता शिल्प कौशल।">
+                    Transparent pricing, real-time tracking, and premium quality craftsmanship across Delhi, Gurugram, Noida, and NCR.
+                </p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="#estimator" class="bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold px-6 py-3 rounded-md transition-all shadow-lg" data-en="Estimate Construction Cost" data-hi="निर्माण लागत का अनुमान लगाएं">Estimate Construction Cost</a>
+                    <a href="#contact" class="border border-slate-400 hover:border-gold-500 hover:text-gold-500 font-semibold px-6 py-3 rounded-md transition-all" data-en="Consult an Expert" data-hi="विशेषज्ञ से सलाह लें">Consult an Expert</a>
                 </div>
             </div>
-        </section>
-
-        <section id="tech" class="py-20 lg:py-28 bg-white scroll-mt-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-xs font-bold text-gold-500 uppercase tracking-widest mb-3">The Tech-Driven Edge</h2>
-                    <p class="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">
-                        How BuildBud Redefines Delhi/NCR Home Construction
-                    </p>
-                    <p class="mt-4 text-slate-600">
-                        We eliminate the traditional headaches of builder coordination, delayed timelines, and opaque material bills using proprietary automation.
-                    </p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 h-1 w-0 bg-gold-500 group-hover:w-full transition-all duration-300"></div>
-                        <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-md shadow-navy-900/10">
-                            <i class="fa-solid fa-vault text-gold-500 text-lg"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-navy-900 mb-3">Safe Escrow Payments</h3>
-                        <p class="text-slate-600 leading-relaxed text-sm">
-                            Your money is safe. Funds are parked in a secure escrow account and released stagewise to construction cycles only after milestones pass tech-verification.
-                        </p>
-                    </div>
-
-                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 h-1 w-0 bg-gold-500 group-hover:w-full transition-all duration-300"></div>
-                        <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-md shadow-navy-900/10">
-                            <i class="fa-solid fa-clipboard-check text-gold-500 text-lg"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-navy-900 mb-3">310+ Local NCR Quality Checks</h3>
-                        <p class="text-slate-600 leading-relaxed text-sm">
-                            From soil testing in Noida to moisture barrier reinforcement required for Gurugram’s water table, our structural engineering team logs every check dynamically.
-                        </p>
-                    </div>
-
-                    <div class="bg-slate-50 border border-slate-200 p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 relative overflow-hidden group">
-                        <div class="absolute top-0 left-0 h-1 w-0 bg-gold-500 group-hover:w-full transition-all duration-300"></div>
-                        <div class="w-12 h-12 bg-navy-900 rounded-xl flex items-center justify-center mb-6 shadow-md shadow-navy-900/10">
-                            <i class="fa-solid fa-mobile-screen-button text-gold-500 text-lg"></i>
-                        </div>
-                        <h3 class="text-xl font-bold text-navy-900 mb-3">Live Site Tracking App</h3>
-                        <p class="text-slate-600 leading-relaxed text-sm">
-                            Can't make it to the site through Delhi traffic? Monitor daily project feeds, CCTV feeds, material delivery receipts, and approvals through the BuildBud app.
-                        </p>
-                    </div>
-                </div>
+            <div class="relative rounded-xl overflow-hidden shadow-2xl border border-slate-800 bg-slate-900 aspect-video md:aspect-square max-w-md mx-auto w-full">
+                <img src="delhi-homes.jpg" alt="Premium Delhi NCR Homes" class="w-full h-full object-cover">
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="services" class="py-20 lg:py-28 bg-slate-900 text-white scroll-mt-20 relative">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-20">
-                    <h2 class="text-xs font-bold text-gold-500 uppercase tracking-widest mb-3">Streamlined Timeline</h2>
-                    <p class="text-3xl sm:text-4xl font-bold tracking-tight">Our Process Built Around NCR Bylaws</p>
-                    <p class="mt-4 text-slate-400">We navigate MCD/HUDA local structural compliances so you do not have to worry.</p>
+    <div class="bg-slate-100 border-b border-slate-200 py-4">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-sm font-semibold text-slate-600 flex flex-wrap justify-center items-center gap-x-6 gap-y-2">
+                <span data-en="⚡ Serving actively across:" data-hi="⚡ सक्रिय रूप से सेवा में:">⚡ Serving actively across:</span>
+                <span class="text-navy-900"><i class="fa-solid fa-location-dot text-gold-500 mr-1"></i>Delhi</span>
+                <span class="text-navy-900"><i class="fa-solid fa-location-dot text-gold-500 mr-1"></i>Gurugram / Gurgaon</span>
+                <span class="text-navy-900"><i class="fa-solid fa-location-dot text-gold-500 mr-1"></i>Noida</span>
+                <span class="text-navy-900"><i class="fa-solid fa-location-dot text-gold-500 mr-1"></i>NCR Areas</span>
+            </p>
+        </div>
+    </div>
+
+    <section id="services" class="py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h2 class="text-3xl font-bold tracking-tight text-navy-900 mb-4" data-en="Our End-to-End Solutions" data-hi="हमारे एंड-टू-एंड समाधान">Our End-to-End Solutions</h2>
+            <p class="text-slate-600" data-en="From architectural blueprints to final turnkey handovers, we deliver transparency and premium quality at every step." data-hi="आर्किटेक्चरल ब्लूप्रिंट से लेकर अंतिम टर्नकी हैंडओवर तक, हम हर कदम पर पारदर्शिता और प्रीमियम गुणवत्ता प्रदान करते हैं।">From architectural blueprints to final turnkey handovers, we deliver transparency and premium quality at every step.</p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-compass-drafting text-xl text-gold-600"></i>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                    
-                    <div class="relative group">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-slate-800 border-2 border-gold-500 rounded-full flex items-center justify-center font-bold text-lg text-gold-500 group-hover:bg-gold-500 group-hover:text-navy-900 transition-all duration-300">1</div>
-                            <div class="h-0.5 bg-slate-700 flex-1 hidden md:block"></div>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Design & Approval</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            3D floor plans crafted for maximum space efficiency, fully optimized to comply with specific Delhi/NCR local height and setback limitations.
-                        </p>
-                    </div>
-
-                    <div class="relative group">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-slate-800 border-2 border-gold-500 rounded-full flex items-center justify-center font-bold text-lg text-gold-500 group-hover:bg-gold-500 group-hover:text-navy-900 transition-all duration-300">2</div>
-                            <div class="h-0.5 bg-slate-700 flex-1 hidden md:block"></div>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Material Procurement</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            Direct sourcing from top local vendors at fixed, upfront institutional pricing. No sudden price escalation mid-project.
-                        </p>
-                    </div>
-
-                    <div class="relative group">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-slate-800 border-2 border-gold-500 rounded-full flex items-center justify-center font-bold text-lg text-gold-500 group-hover:bg-gold-500 group-hover:text-navy-900 transition-all duration-300">3</div>
-                            <div class="h-0.5 bg-slate-700 flex-1 hidden md:block"></div>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Tech Construction</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            Real-time tracking of milestones through internal Gantt charts. Regular inspections verify concrete grade alignment and finishing details.
-                        </p>
-                    </div>
-
-                    <div class="relative group">
-                        <div class="flex items-center gap-4 mb-4">
-                            <div class="w-12 h-12 bg-slate-800 border-2 border-gold-500 rounded-full flex items-center justify-center font-bold text-lg text-gold-500 group-hover:bg-gold-500 group-hover:text-navy-900 transition-all duration-300">4</div>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2">Handover & Warranty</h3>
-                        <p class="text-sm text-slate-400 leading-relaxed">
-                            Move right into your premium home accompanied by a comprehensive structural warranty package to safeguard your multi-generational asset.
-                        </p>
-                    </div>
-
-                </div>
-
-                <div class="mt-16 rounded-2xl overflow-hidden border border-slate-700 relative">
-                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80" 
-                         alt="Active engineered foundation development site for a multi-floor stilt premium home structure in Gurugram, showing high-grade steel rebars and precise formwork aligned with modern Indian structural safety standards." 
-                         class="w-full h-64 object-cover object-center opacity-40">
-                    <div class="absolute inset-0 bg-gradient-to-r from-navy-900 via-transparent to-navy-900 flex items-center justify-between p-8 md:p-12">
-                        <div class="max-w-md">
-                            <h4 class="text-xl font-bold text-white mb-2">Want to see a live build?</h4>
-                            <p class="text-sm text-slate-300">Schedule a site visit to one of our ongoing premium residential projects across South Delhi or Gurugram.</p>
-                        </div>
-                        <a href="#contact" class="hidden sm:inline-block bg-white text-navy-900 font-bold px-6 py-3 rounded-lg hover:bg-gold-500 hover:text-navy-900 transition-colors shrink-0 text-sm">
-                            Book Site Visit
-                        </a>
-                    </div>
-                </div>
+                <h3 class="text-xl font-bold text-navy-900 mb-3" data-en="Architecture & Design" data-hi="आर्किटेक्चर और डिज़ाइन">Architecture & Design</h3>
+                <p class="text-slate-600 text-sm leading-relaxed" data-en="Custom 2D layout planning, structural engineering, and realistic 3D walk-through concepts tailored to municipal bylaws." data-hi="नगरपालिका के नियमों के अनुरूप कस्टम 2D लेआउट प्लानिंग, स्ट्रक्चरल इंजीनियरिंग और रियलिस्टिक 3D वॉक-थ्रू कॉन्सेप्ट्स।">Custom 2D layout planning, structural engineering, and realistic 3D walk-through concepts tailored to municipal bylaws.</p>
             </div>
-        </section>
-
-        <section id="estimator" class="py-20 lg:py-28 bg-slate-50 scroll-mt-20">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-xs font-bold text-gold-500 uppercase tracking-widest mb-3">Transparent Frameworks</h2>
-                    <p class="text-3xl sm:text-4xl font-bold text-navy-900 tracking-tight">Our Premium Tiered Specifications</p>
-                    <p class="mt-4 text-slate-600">No hidden costs. Clear cost-per-square-foot matrix localized for specific NCR markets.</p>
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-building text-xl text-gold-600"></i>
                 </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
-                    
-                    <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-8 flex flex-col justify-between relative">
-                        <div>
-                            <div class="mb-4">
-                                <span class="bg-slate-100 text-slate-800 text-xs font-semibold px-3 py-1 rounded-full uppercase">Executive</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-navy-900">Standard Gurgaon</h3>
-                            <p class="text-sm text-slate-500 mt-1">Perfect for vibrant gated community specifications</p>
-                            
-                            <div class="my-6 border-y border-slate-100 py-4">
-                                <span class="text-4xl font-extrabold text-navy-900">₹1,800</span>
-                                <span class="text-slate-500 text-sm">/ sq. ft. onwards</span>
-                            </div>
-
-                            <ul class="space-y-3.5 text-sm text-slate-600">
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> Standard structural steel (Fe 500)</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> Premium Vitrified flooring tiling</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> Quality emulsion paints (Asian Paints)</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> CP fittings from Jaquar or equivalent</li>
-                            </ul>
-                        </div>
-                        <div class="mt-8">
-                            <a href="#contact" class="block w-full text-center border-2 border-navy-900 hover:bg-navy-900 hover:text-white text-navy-900 font-bold py-3 rounded-xl text-sm transition-colors">Select Executive</a>
-                        </div>
-                    </div>
-
-                    <div class="bg-white border-2 border-gold-500 rounded-2xl shadow-xl p-8 flex flex-col justify-between relative transform lg:-translate-y-2">
-                        <div class="absolute top-0 right-8 transform -translate-y-1/2 bg-gold-500 text-navy-900 text-xs font-bold px-4 py-1 rounded-full uppercase tracking-wider">
-                            Most Popular
-                        </div>
-                        <div>
-                            <div class="mb-4">
-                                <span class="bg-gold-100 text-gold-600 text-xs font-semibold px-3 py-1 rounded-full uppercase">Premium Elite</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-navy-900">Luxury South Delhi</h3>
-                            <p class="text-sm text-slate-500 mt-1">Tailored for elegant independent luxury builder floors</p>
-                            
-                            <div class="my-6 border-y border-slate-100 py-4">
-                                <span class="text-4xl font-extrabold text-navy-900">₹2,400</span>
-                                <span class="text-slate-500 text-sm">/ sq. ft. onwards</span>
-                            </div>
-
-                            <ul class="space-y-3.5 text-sm text-slate-600">
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> High-grade structural steel (Fe 550)</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> Italian marble accents in drawing area</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> Specialized modular kitchen configurations</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> False ceiling layouts with LED integrations</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> Premium Kohler or Jaguar sanitary fixtures</li>
-                            </ul>
-                        </div>
-                        <div class="mt-8">
-                            <a href="#contact" class="block w-full text-center bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold py-3 rounded-xl text-sm transition-colors shadow-md">Select Elite</a>
-                        </div>
-                    </div>
-
-                    <div class="bg-white border border-slate-200 rounded-2xl shadow-sm p-8 flex flex-col justify-between relative">
-                        <div>
-                            <div class="mb-4">
-                                <span class="bg-purple-100 text-purple-700 text-xs font-semibold px-3 py-1 rounded-full uppercase">Ultra-Lux</span>
-                            </div>
-                            <h3 class="text-2xl font-bold text-navy-900">NCR Signature</h3>
-                            <p class="text-sm text-slate-500 mt-1">High-end bespoke structural architectural blueprints</p>
-                            
-                            <div class="my-6 border-y border-slate-100 py-4">
-                                <span class="text-4xl font-extrabold text-navy-900">₹3,200</span>
-                                <span class="text-slate-500 text-sm">/ sq. ft. onwards</span>
-                            </div>
-
-                            <ul class="space-y-3.5 text-sm text-slate-600">
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> Comprehensive home automation tech</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> Full imported structural Italian marble floor plates</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> Daikin VRV central air-conditioning provisions</li>
-                                <li class="flex items-center gap-3"><i class="fa-solid fa-circle-check text-emerald-500"></i> High-end bespoke design consultations</li>
-                            </ul>
-                        </div>
-                        <div class="mt-8">
-                            <a href="#contact" class="block w-full text-center border-2 border-navy-900 hover:bg-navy-900 hover:text-white text-navy-900 font-bold py-3 rounded-xl text-sm transition-colors">Select Signature</a>
-                        </div>
-                    </div>
-
+                <h3 class="text-xl font-bold text-navy-900 mb-3" data-en="Turnkey Construction" data-hi="टर्नकी निर्माण">Turnkey Construction</h3>
+                <p class="text-slate-600 text-sm leading-relaxed" data-en="End-to-end execution involving excavation, brickwork, slab casting, MEP installations, and premium finishes handled by seasoned experts." data-hi="अनुभवी विशेषज्ञों द्वारा खुदाई, ईंटवर्क, स्लैब कास्टिंग, MEP इंस्टॉलेशन और प्रीमियम फिनिशिंग सहित शुरू से अंत तक का काम।">End-to-end execution involving excavation, brickwork, slab casting, MEP installations, and premium finishes handled by seasoned experts.</p>
+            </div>
+            <div class="bg-white p-8 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition-all">
+                <div class="w-12 h-12 rounded-lg bg-amber-100 flex items-center justify-center mb-6">
+                    <i class="fa-solid fa-couch text-xl text-gold-600"></i>
                 </div>
+                <h3 class="text-xl font-bold text-navy-900 mb-3" data-en="Luxury Interior Fitouts" data-hi="लक्जरी इंटीरियर फिटआउट्स">Luxury Interior Fitouts</h3>
+                <p class="text-slate-600 text-sm leading-relaxed" data-en="Modular kitchens, false ceiling treatments, automated lighting setups, and premium stone flooring work designed to match your lifestyle." data-hi="आपके लाइफस्टाइल से मेल खाने के लिए डिज़ाइन किए गए मॉड्यूलर किचन, फॉल्स सीलिंग, ऑटोमेटेड लाइटिंग और प्रीमियम स्टोन फ्लोरिंग का काम।">Modular kitchens, false ceiling treatments, automated lighting setups, and premium stone flooring work designed to match your lifestyle.</p>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="py-20 lg:py-28 bg-navy-900 text-white scroll-mt-20 relative overflow-hidden">
-            <div class="absolute inset-y-0 right-0 w-1/2 opacity-5 hidden lg:block">
-                <div class="w-full h-full bg-[radial-gradient(#fff_1px,transparent_1px)] [background-size:24px_24px]"></div>
+    <section id="estimator" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <span class="text-gold-500 font-bold uppercase tracking-wider text-xs block mb-2" data-en="Instant Transparency" data-hi="तुरंत पारदर्शिता">Instant Transparency</span>
+                <h2 class="text-3xl font-bold tracking-tight" data-en="Delhi/NCR Home Construction Cost Estimator" data-hi="दिल्ली/NCR होम कंस्ट्रक्शन कॉस्ट एस्टीमेटर">Delhi/NCR Home Construction Cost Estimator</h2>
+                <p class="text-slate-400 mt-2 text-sm" data-en="Get a realistic budget framework calculated on prevailing material and labor costs across Delhi, Gurugram, and Noida." data-hi="दिल्ली, गुरुग्राम और नोएडा में मौजूदा सामग्री और श्रम लागत के आधार पर तैयार किया गया एक वास्तविक बजट फ्रेमवर्क प्राप्त करें।">Get a realistic budget framework calculated on prevailing material and labor costs across Delhi, Gurugram, and Noida.</p>
             </div>
-            
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+
+            <div class="bg-slate-800 rounded-2xl p-6 sm:p-10 border border-slate-700 shadow-xl grid md:grid-cols-5 gap-8">
+                <div class="md:col-span-3 flex flex-col gap-5">
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-400 mb-2" data-en="Total Built-Up Area (sq. ft.)" data-hi="कुल निर्मित क्षेत्र (वर्ग फीट)">Total Built-Up Area (sq. ft.)</label>
+                        <input type="number" id="calc-area" value="1800" min="200" max="20000" class="w-full bg-slate-900 text-white rounded-lg border border-slate-600 px-4 py-2.5 focus:border-gold-500 focus:outline-none font-medium">
+                    </div>
                     
                     <div>
-                        <h2 class="text-xs font-bold text-gold-500 uppercase tracking-widest mb-3">Consult with Experts</h2>
-                        <p class="text-3xl sm:text-4xl font-bold tracking-tight">Ready to build your dream NCR home?</p>
-                        <p class="mt-4 text-slate-300 max-w-md leading-relaxed">
-                            Fill out the plot framework metrics, and our structural layout design consultant will coordinate a comprehensive exploratory roadmap briefing within 24 business hours.
-                        </p>
+                        <label class="block text-xs font-bold uppercase text-slate-400 mb-2" data-en="Construction Package / Quality Level" data-hi="निर्माण पैकेज / गुणवत्ता स्तर">Construction Package / Quality Level</label>
+                        <select id="calc-package" class="w-full bg-slate-900 text-white rounded-lg border border-slate-600 px-4 py-2.5 focus:border-gold-500 focus:outline-none font-medium">
+                            <option value="1650" data-en="Standard Package (₹1,650/sq.ft) - High Quality Basics" data-hi="स्टैंडर्ड पैकेज (₹1,650/वर्ग फीट) - हाई क्वालिटी बेसिक्स">Standard Package (₹1,650/sq.ft) - High Quality Basics</option>
+                            <option value="1950" selected data-en="Premium Package (₹1,950/sq.ft) - Branded Fittings & Finishes" data-hi="प्रीमियम पैकेज (₹1,950/वर्ग फीट) - ब्रांडेड फिटिंग्स और फिनिश">Premium Package (₹1,950/sq.ft) - Branded Fittings & Finishes</option>
+                            <option value="2500" data-en="Luxury Package (₹2,500/sq.ft) - Italian Marble, Automation, Exotic Woods" data-hi="लक्जरी पैकेज (₹2,500/वर्ग फीट) - इटैलियन मार्बल, ऑटोमेशन, प्रीमियम वुड्स">Luxury Package (₹2,500/sq.ft) - Italian Marble, Automation, Exotic Woods</option>
+                        </select>
+                    </div>
 
-                        <div class="mt-8 space-y-6">
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-phone text-gold-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-white">Call Direct for Quick Inquiries</h4>
-                                    <p class="text-sm text-slate-400">+91 98100 XXXXX / 011-4500XXXX</p>
-                                </div>
-                            </div>
-                            <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0">
-                                    <i class="fa-solid fa-envelope text-gold-500"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-medium text-white">Official Correspondence</h4>
-                                    <p class="text-sm text-slate-400">hello@buildbud.in</p>
-                                </div>
-                            </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-400 mb-2" data-en="Number of Floors" data-hi="मंजिलों की संख्या">Number of Floors</label>
+                        <div class="grid grid-cols-4 gap-2">
+                            <button type="button" onclick="setFloors(1)" class="floor-btn bg-gold-500 text-navy-900 font-bold py-2 px-3 rounded-lg focus:outline-none transition-colors">G</button>
+                            <button type="button" onclick="setFloors(2)" class="floor-btn bg-slate-900 text-slate-300 font-bold py-2 px-3 rounded-lg border border-slate-600 focus:outline-none hover:border-slate-400 transition-colors">G+1</button>
+                            <button type="button" onclick="setFloors(3)" class="floor-btn bg-slate-900 text-slate-300 font-bold py-2 px-3 rounded-lg border border-slate-600 focus:outline-none hover:border-slate-400 transition-colors">G+2</button>
+                            <button type="button" onclick="setFloors(4)" class="floor-btn bg-slate-900 text-slate-300 font-bold py-2 px-3 rounded-lg border border-slate-600 focus:outline-none hover:border-slate-400 transition-colors">G+3</button>
                         </div>
                     </div>
 
-                    <div class="bg-white text-slate-800 p-8 sm:p-10 rounded-2xl shadow-2xl border border-slate-200">
-                        <h3 class="text-xl font-bold text-navy-900 mb-6">Request Detailed Consultation</h3>
-                        <form id="leadForm" class="space-y-5" onsubmit="event.preventDefault(); alert('Thank you for connecting with BuildBud! Our NCR expert team will contact you shortly.');">
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Full Name</label>
-                                <input type="text" required placeholder="Enter name" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 text-slate-900">
-                            </div>
-                            
-                            <div>
-                                <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Phone Number</label>
-                                <div class="relative">
-                                    <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-sm font-medium text-slate-500">+91</span>
-                                    <input type="tel" required pattern="[0-9]{10}" placeholder="9876543210" class="w-full bg-slate-50 border border-slate-300 rounded-lg pl-14 pr-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 text-slate-900">
-                                </div>
-                            </div>
+                    <button type="button" onclick="calculateCost()" class="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold py-3 px-4 rounded-lg mt-2 transition-colors flex items-center justify-center gap-2 shadow-lg text-sm uppercase tracking-wider">
+                        <i class="fa-solid fa-calculator"></i> <span data-en="Calculate Detailed Breakdown" data-hi="विस्तृत ब्रेकडाउन की गणना करें">Calculate Detailed Breakdown</span>
+                    </button>
+                </div>
 
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                <div>
-                                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Plot Location Area</label>
-                                    <select class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 text-slate-900">
-                                        <option>Gurugram</option>
-                                        <option>South Delhi</option>
-                                        <option>Noida</option>
-                                        <option>Dwarka</option>
-                                        <option>Ghaziabad</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <label class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-1.5">Plot Size (Sq. Yards)</label>
-                                    <input type="number" required placeholder="e.g. 250" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/20 focus:border-gold-500 text-slate-900">
-                                </div>
-                            </div>
-
-                            <div class="pt-2">
-                                <button type="submit" class="w-full bg-gold-500 hover:bg-gold-600 text-navy-900 font-bold py-3.5 rounded-lg text-sm transition-colors shadow-md flex items-center justify-center gap-2 tracking-wide uppercase">
-                                    Get Free NCR Quote <i class="fa-solid fa-chevron-right text-xs"></i>
-                                </button>
-                            </div>
-                        </form>
+                <div class="md:col-span-2 bg-slate-900/50 rounded-xl p-5 border border-slate-700/60 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-sm font-bold text-slate-400 uppercase tracking-wide mb-1" data-en="Estimated Investment" data-hi="अनुमानित कुल निवेश">Estimated Investment</h3>
+                        <div class="text-3xl sm:text-4xl font-extrabold text-gold-500 tracking-tight" id="result-total">₹35,10,000</div>
+                        <p class="text-[11px] text-slate-400 mt-1" data-en="*Includes civic structural framework and finishing engineering." data-hi="*इसमें सिविक स्ट्रक्चरल फ्रेमवर्क और फिनिशिंग इंजीनियरिंग शामिल है।">*Includes civic structural framework and finishing engineering.</p>
                     </div>
 
+                    <div class="border-t border-slate-700/80 my-4 pt-4 flex flex-col gap-2 text-xs">
+                        <div class="flex justify-between">
+                            <span class="text-slate-400" data-en="Civil & Core Materials (approx. 55%)" data-hi="सिविल और कोर सामग्री (लगभग 55%)">Civil & Core Materials (approx. 55%)</span>
+                            <span class="font-bold text-slate-200" id="result-civil">₹19,30,500</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400" data-en="Finishes & Fitting Assets (approx. 30%)" data-hi="फिनिशिंग और फिटिंग एसेट्स (लगभग 30%)">Finishes & Fitting Assets (approx. 30%)</span>
+                            <span class="font-bold text-slate-200" id="result-finishes">₹10,53,000</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-slate-400" data-en="MEP & Workforce Fees (approx. 15%)" data-hi="MEP और वर्कफोर्स फीस (लगभग 15%)">MEP & Workforce Fees (approx. 15%)</span>
+                            <span class="font-bold text-slate-200" id="result-mep">₹5,26,500</span>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="text-center text-xs font-bold text-gold-500 hover:text-white underline block pt-2" data-en="Want an itemized BOQ worksheet? Message our team" data-hi="क्या आप विस्तृत BOQ वर्कशीट चाहते हैं? हमारी टीम से संपर्क करें">Want an itemized BOQ worksheet? Message our team</a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer class="bg-slate-950 text-slate-400 border-t border-slate-900 text-sm">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-                <div class="space-y-4">
-                    <a href="#" class="text-xl font-bold text-white tracking-tight flex items-center gap-2">
-                        <i class="fa-solid fa-trowel-bricks text-gold-500"></i> Build<span class="text-gold-500">Bud</span>
-                    </a>
-                    <p class="text-xs leading-relaxed">
-                        Tech-driven construction orchestrator delivering absolute blueprint precision across premium residential communities.
-                    </p>
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight text-navy-900 mb-4" data-en="Our Architecture & On-Site Blueprint Execution" data-hi="हमारा आर्किटेक्चर और ऑन-साइट ब्लूप्रिंट निष्पादन">Our Architecture & On-Site Blueprint Execution</h2>
+                <p class="text-slate-600" data-en="Explore real photos of our current on-site civil structural framing and finished premium internal layouts across NCR residential zones." data-hi="NCR आवासीय क्षेत्रों में हमारे वर्तमान ऑन-साइट सिविल स्ट्रक्चरल फ्रेमिंग और तैयार प्रीमियम आंतरिक लेआउट की वास्तविक तस्वीरें देखें।">Explore real photos of our current on-site civil structural framing and finished premium internal layouts across NCR residential zones.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group relative rounded-xl overflow-hidden shadow-sm border border-slate-100 aspect-4/3 bg-slate-100">
+                    <img src="construction-site.jpg" alt="Active Civil Construction Site Frame Work" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 p-5 flex flex-col justify-end text-white">
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-gold-500" data-en="On-Site Structural Execution" data-hi="ऑन-साइट स्ट्रक्चरल निष्पादन">On-Site Structural Execution</span>
+                        <h4 class="font-bold text-base mt-1" data-en="Core RCC Slab Frame Assembly" data-hi="कोर RCC स्लैब फ्रेम असेंबली">Core RCC Slab Frame Assembly</h4>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Quick Links</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="#" class="hover:text-gold-500 transition-colors">Home Dashboard</a></li>
-                        <li><a href="#tech" class="hover:text-gold-500 transition-colors">Proprietary Tech Hub</a></li>
-                        <li><a href="#services" class="hover:text-gold-500 transition-colors">Workflow Layout</a></li>
-                        <li><a href="#estimator" class="hover:text-gold-500 transition-colors">NCR Packages Matrix</a></li>
-                    </ul>
+                <div class="group relative rounded-xl overflow-hidden shadow-sm border border-slate-100 aspect-4/3 bg-slate-100">
+                    <img src="gallery-morning.jpg" alt="Premium Living Room Interior Layout - Morning Horizon" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 p-5 flex flex-col justify-end text-white">
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-gold-500" data-en="Interior Architecture" data-hi="इंटीरियर आर्किटेक्चर">Interior Architecture</span>
+                        <h4 class="font-bold text-base mt-1" data-en="Living Lounge Ambience - Morning View" data-hi="लिविंग लाउंज एम्बिएंस - मॉर्निंग व्यू">Living Lounge Ambience - Morning View</h4>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Compliances</h4>
-                    <ul class="space-y-2 text-xs">
-                        <li><a href="#" class="hover:text-gold-500 transition-colors">Unified Building Bylaws Delhi</a></li>
-                        <li><a href="#" class="hover:text-gold-500 transition-colors">HUDA Planning Frameworks</a></li>
-                        <li><a href="#" class="hover:text-gold-500 transition-colors">RERA Registered Processes</a></li>
-                    </ul>
+                <div class="group relative rounded-xl overflow-hidden shadow-sm border border-slate-100 aspect-4/3 bg-slate-100">
+                    <img src="gallery-afternoon.jpg" alt="Premium Living Room Interior Layout - Midday Ambiance" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 p-5 flex flex-col justify-end text-white">
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-gold-500" data-en="Turnkey Luxury Living Space" data-hi="टर्नकी लक्जरी लिविंग स्पेस">Turnkey Luxury Living Space</span>
+                        <h4 class="font-bold text-base mt-1" data-en="Living Lounge Ambience - Afternoon View" data-hi="लिविंग लाउंज एम्बिएंस - आफ्टरनून व्यू">Living Lounge Ambience - Afternoon View</h4>
+                    </div>
                 </div>
 
-                <div>
-                    <h4 class="text-white font-semibold text-xs uppercase tracking-wider mb-4">Corporate Office</h4>
-                    <p class="text-xs leading-relaxed mb-2">
-                        Vikas Marg, Sector 43, Gurugram, Haryana 122002
-                    </p>
-                    <div class="flex gap-3 text-base pt-2">
-                        <a href="#" class="hover:text-white transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="#" class="hover:text-white transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" class="hover:text-white transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <div class="group relative rounded-xl overflow-hidden shadow-sm border border-slate-100 aspect-4/3 bg-slate-100 sm:col-span-2 lg:col-span-1">
+                    <img src="gallery-night.jpg" alt="Premium Living Room Interior Layout - Illumination Design" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 p-5 flex flex-col justify-end text-white">
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-gold-500" data-en="Lighting Engineering Layout" data-hi="लाइटिंग इंजीनियरिंग लेआउट">Lighting Engineering Layout</span>
+                        <h4 class="font-bold text-base mt-1" data-en="Living Lounge Ambience - Evening View" data-hi="लिविंग लाउंज एम्बिएंस - इवनिंग व्यू">Living Lounge Ambience - Evening View</h4>
+                    </div>
+                </div>
+
+                <div class="group relative rounded-xl overflow-hidden shadow-sm border border-slate-100 aspect-4/3 bg-slate-100 sm:col-span-2 lg:col-span-2">
+                    <img src="delhi-homes.jpg" alt="Finished Premium Residential Structural Project View" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-900/20 to-transparent opacity-90 p-5 flex flex-col justify-end text-white">
+                        <span class="text-[10px] uppercase font-bold tracking-wider text-gold-500" data-en="Turnkey Multi-Floor Finished Product" data-hi="टर्नकी मल्टी-फ्लोर फिनिश्ड प्रोडक्ट">Turnkey Multi-Floor Finished Product</span>
+                        <h4 class="font-bold text-base mt-1" data-en="Premium Residential Elevation Design Execution" data-hi="प्रीमियम आवासीय एलिवेशन डिज़ाइन निष्पादन">Premium Residential Elevation Design Execution</h4>
                     </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="border-t border-slate-900 pt-8 flex flex-col sm:flex-row items-center justify-between text-xs gap-4 text-slate-500">
-                <p>&copy; 2026 BuildBud Technology Platforms. All rights reserved.</p>
+    <section id="contact" class="py-20 bg-slate-100 border-t border-slate-200">
+        <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white rounded-2xl shadow-xl p-8 border border-slate-200/60">
+                <h3 class="text-2xl font-bold text-navy-900 text-center mb-2" data-en="Initiate Your Build Consultation" data-hi="अपनी निर्माण परामर्श प्रक्रिया शुरू करें">Initiate Your Build Consultation</h3>
+                <p class="text-slate-500 text-center text-sm mb-8" data-en="Share details about your layout project and receive expert feedback within 24 hours." data-hi="अपने प्रोजेक्ट का विवरण साझा करें और 24 घंटे के भीतर विशेषज्ञ प्रतिक्रिया प्राप्त करें।">Share details about your layout project and receive expert feedback within 24 hours.</p>
+                
+                <form class="flex flex-col gap-5">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Your Full Name" data-hi="आपका पूरा नाम">Your Full Name</label>
+                            <input type="text" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 focus:border-gold-500 focus:outline-none text-sm font-medium">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Contact Phone Number" data-hi="संपर्क फोन नंबर">Contact Phone Number</label>
+                            <input type="tel" required class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 focus:border-gold-500 focus:outline-none text-sm font-medium">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Project Site Location" data-hi="प्रोजेक्ट साइट की स्थिति">Project Site Location</label>
+                        <select class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 focus:border-gold-500 focus:outline-none text-sm font-medium">
+                            <option>Delhi</option>
+                            <option>Gurugram / Gurgaon</option>
+                            <option>Noida</option>
+                            <option>NCR Area</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold uppercase text-slate-500 mb-1" data-en="Detailed Architectural Scope / Notes" data-hi="विस्तृत आर्किटेक्चरल स्कोप / नोट्स">Detailed Architectural Scope / Notes</label>
+                        <textarea rows="4" class="w-full bg-slate-50 border border-slate-300 rounded-lg px-4 py-2 focus:border-gold-500 focus:outline-none text-sm font-medium"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-navy-900 hover:bg-slate-800 text-white font-bold py-3 px-4 rounded-lg transition-colors mt-2 uppercase tracking-wider text-sm shadow-md" data-en="Submit Secure Request" data-hi="सुरक्षित अनुरोध सबमिट करें">Submit Secure Request</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-navy-900 text-slate-400 py-12 border-t border-slate-800 text-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center gap-6">
+            <div class="flex items-center gap-2 text-white">
+                <i class="fa-solid fa-helmet-safety text-2xl text-gold-500"></i>
+                <span class="text-xl font-bold tracking-tight">Build<span class="text-gold-500">Bud</span></span>
+            </div>
+            <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-xs">
                 <p class="flex items-center gap-1.5">
-                    <i class="fa-solid fa-location-dot text-gold-500"></i> Serving Delhi, Gurugram, Noida, Ghaziabad.
+                    <i class="fa-solid fa-location-dot text-gold-500"></i> <span data-en="Serving Delhi, Gurugram, Noida, and NCR." data-hi="दिल्ली, गुरुग्राम, नोएडा और NCR में सेवाएं।">Serving Delhi, Gurugram, Noida, and NCR.</span>
                 </p>
             </div>
+            <p class="text-xs text-slate-500">&copy; 2026 BuildBud. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Mobile Navigation Dropdown Toggle
+        // Global variables for estimator logic
+        let selectedFloorsMultiplier = 1.0;
+
+        // Mobile Navigation Dropdown Menu Toggle Mechanic
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIcon = document.getElementById('menu-icon');
@@ -507,6 +322,102 @@
                 menuIcon.classList.remove('fa-xmark');
                 menuIcon.classList.add('fa-bars');
             });
+        });
+
+        // Multi-Floor Selection UI Styling State Control Engine
+        function setFloors(numFloors) {
+            const buttons = document.querySelectorAll('.floor-btn');
+            buttons.forEach((btn, index) => {
+                if (index === (numFloors - 1)) {
+                    btn.classList.remove('bg-slate-900', 'text-slate-300', 'border', 'border-slate-600');
+                    btn.classList.add('bg-gold-500', 'text-navy-900');
+                } else {
+                    btn.classList.remove('bg-gold-500', 'text-navy-900');
+                    btn.classList.add('bg-slate-900', 'text-slate-300', 'border', 'border-slate-600');
+                }
+            });
+            
+            // Adjust calculations slightly for multi-floor foundation/roof economies of scale
+            if(numFloors === 1) selectedFloorsMultiplier = 1.0;
+            if(numFloors === 2) selectedFloorsMultiplier = 0.98; // economy of scale
+            if(numFloors === 3) selectedFloorsMultiplier = 0.96;
+            if(numFloors >= 4) selectedFloorsMultiplier = 0.95;
+            
+            calculateCost();
+        }
+
+        // Complete Localized Currency Indian Commas Formatting Rule Engine
+        function formatIndianCurrency(amount) {
+            let x = Math.round(amount).toString();
+            let lastThree = x.slice(-3);
+            let otherBits = x.slice(0, -3);
+            if(otherBits != '') lastThree = ',' + lastThree;
+            let res = otherBits.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+            return '₹' + res;
+        }
+
+        // Live Cost Estimator Computational Function
+        function calculateCost() {
+            const areaValue = parseFloat(document.getElementById('calc-area').value) || 0;
+            const pricePerSqFt = parseFloat(document.getElementById('calc-package').value);
+            
+            // Core raw calculation formula
+            const rawTotalCost = areaValue * pricePerSqFt * selectedFloorsMultiplier;
+            
+            // standard structural allocation distributions inside India residential projects
+            const civilCost = rawTotalCost * 0.55;
+            const finishesCost = rawTotalCost * 0.30;
+            const mepCost = rawTotalCost * 0.15;
+            
+            // Injecting live text layout modifications safely
+            document.getElementById('result-total').innerText = formatIndianCurrency(rawTotalCost);
+            document.getElementById('result-civil').innerText = formatIndianCurrency(civilCost);
+            document.getElementById('result-finishes').innerText = formatIndianCurrency(finishesCost);
+            document.getElementById('result-mep').innerText = formatIndianCurrency(mepCost);
+        }
+
+        // Multilingual Client-Side Dom Content Replacement Engine
+        function setLanguage(lang) {
+            const elementsToTranslate = document.querySelectorAll('[data-en]');
+            
+            elementsToTranslate.forEach(el => {
+                if (lang === 'hi') {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = el.getAttribute('data-hi');
+                    } else {
+                        el.innerText = el.getAttribute('data-hi');
+                    }
+                } else {
+                    if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA') {
+                        el.placeholder = el.getAttribute('data-en');
+                    } else {
+                        el.innerText = el.getAttribute('data-en');
+                    }
+                }
+            });
+
+            // Handle title attribute localization independently
+            const headTitle = document.querySelector('title');
+            headTitle.innerText = headTitle.getAttribute('data-' + lang);
+
+            // Toggle top UI header active text classes
+            const btnEn = document.getElementById('lang-toggle-en');
+            const btnHi = document.getElementById('lang-toggle-hi');
+
+            if (lang === 'hi') {
+                btnHi.classList.add('text-gold-500', 'font-semibold', 'hover:underline');
+                btnEn.classList.remove('text-gold-500', 'font-semibold', 'hover:underline');
+                btnEn.classList.add('text-white');
+            } else {
+                btnEn.classList.add('text-gold-500', 'font-semibold', 'hover:underline');
+                btnHi.classList.remove('text-gold-500', 'font-semibold', 'hover:underline');
+                btnHi.classList.add('text-white');
+            }
+        }
+
+        // Initialize default cost on frame load execution
+        window.addEventListener('DOMContentLoaded', () => {
+            calculateCost();
         });
     </script>
 </body>
